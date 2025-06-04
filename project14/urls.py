@@ -23,4 +23,11 @@ urlpatterns = [
     path('dept/',dept,name='dept'),
     path('emp/',emp,name='emp'),
     path('salgrade/',salgrade,name='salgrade'),
+    path('display_dept/',display_dept,name='display_dept'),
+    path('display_emp/',display_emp,name='display_emp'),
+    path('display_salgrade/',display_salgrade,name='display_slagrade'),
+    path('empToDeptjoins/',empToDeptjoins, name='empToDeptjoins'),
+    path('empToMgrJoin',empToMgrJoin,name='empToMgrJoin'),
+    path('empToMgrToDeptJoin/',empToMgrToDeptJoin,name='empToMgrToDeptJoin'),
+    path('deptToEmpJoinPR/',deptToEmpJoinPR,name='deptToEmpJoinPR'),
 ]

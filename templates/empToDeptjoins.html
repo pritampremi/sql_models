@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>EMP TO DEPT JOIN</h1>
+
+        <table border="3px" cellpadding="7px">
+            <tr>
+                <th>empno</th>
+                <th>ename</th>
+                <th>job</th>
+                <th>hiredate</th>
+                <th>sal</th>
+                <th>comm</th>
+                <th>deptno</th>
+                <th>mgr</th>
+
+                <th>deptno(DEPT)</th>
+                <th>dname</th>
+                <th>dloc</th>
+            </tr>
+
+            {% for EDO in LEDO %}
+            <tr  align="center">
+                <td>{{EDO.empno}}</td>
+                <td>{{EDO.ename}}</td>
+                <td>{{EDO.job}}</td>
+                <td>{{EDO.hiredate}}</td>
+                <td>{{EDO.sal}}</td>
+                <td>{{EDO.comm}}</td>
+                <td>{{EDO.deptno}}</td>
+                <td>{{EDO.mgr}}</td>
+
+                <td>{{EDO.deptno.deptno}}</td>
+                <td>{{EDO.deptno.dname}}</td>
+                <td>{{EDO.deptno.dloc}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>

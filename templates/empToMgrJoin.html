@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>EMP TO MGR JOIN</h1>
+        <table border="3px" cellpadding="5px">
+            <tr>
+                <th>empno</th>
+                <th>ename</th>
+                <th>job</th>
+                <th>sal</th>
+                <th>comm</th>
+                <th>hiredate</th>
+                <th>mgr</th>
+                <th>deptno</th>
+
+                <th>Mgr empno</th>
+                <th>Mgr ename</th>
+                <th>Mgr job</th>
+                <th>Mgr sal</th>
+                <th>Mgr comm</th>
+                <th>Mgr hiredate</th>
+                <th>Mgr mgr</th>
+                <th>Mgr deptno</th>
+            </tr>
+            {% for EMO in LEMO %}
+            <tr>
+                <td>{{EMO.empno}}</td>
+                <td>{{EMO.ename}}</td>
+                <td>{{EMO.job}}</td>
+                <td>{{EMO.sal}}</td>
+                <td>{{EMO.comm}}</td>
+                <td>{{EMO.hiredate}}</td>
+                <td>{{EMO.mgr}}</td>
+                <td>{{EMO.deptno}}</td>
+
+                <td>{{EMO.mgr.empno}}</td>
+                <td>{{EMO.mgr.ename}}</td>
+                <td>{{EMO.mgr.job}}</td>
+                <td>{{EMO.mgr.sal}}</td>
+                <td>{{EMO.mgr.comm}}</td>
+                <td>{{EMO.mgr.hiredate}}</td>
+                <td>{{EMO.mgr.mgr}}</td>
+                <td>{{EMO.mgr.deptno}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>

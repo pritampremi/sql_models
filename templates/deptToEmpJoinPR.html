@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prefetch Related</title>
+</head>
+<body>
+    <center>
+        <h1>Dept To Emp Join (Prefetch Related)</h1>
+
+        {%for DEO in LDEO%}
+            {% if DEO.emp_set.all %}
+            <h1>{{ DEO.dname }}</h1>
+
+            <table border="3px" cellpadding="5px">
+                <tr>
+                    <th>empno</th>
+                    <th>ename</th>
+                    <th>sal</th>
+                </tr>
+                {% for EO in DEO.emp_set.all %}
+                    <tr>
+                        <td>{{EO.empno}}</td>
+                        <td>{{EO.ename}}</td>
+                        <td>{{EO.sal}}</td>
+                    </tr>
+                {% endfor %}
+            </table> 
+            {% endif %}   
+        {% endfor %}
+                    
+    </center>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalGrade Table</title>
+</head>
+<body>
+    <center>
+        <h1>Display SalGrade</h1>
+        <table border="3px" cellpadding="5px">
+            <tr>
+                <th>grade</th>
+                <th>losal</th>
+                <th>hisal</th>
+            </tr>
+
+            {% for SO in LSO %}
+            <tr>
+                <td>{{SO.grade}}</td>
+                <td>{{SO.losal}}</td>
+                <td>{{SO.hisal}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>

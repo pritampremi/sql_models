@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dept Table</title>
+</head>
+<body>
+    <center>
+       <h1> Dispaly Dept</h1>
+
+        <table border="3px" cellpadding="5px">
+            <tr>
+                <th>deptno</th>
+                <th>dname</th>
+                <th>dloc</th>
+            </tr>
+            {% for DO in LDO %}
+            <tr>
+                <td>{{DO.deptno}}</td>
+                <td>{{DO.dname}}</td>
+                <td>{{DO.dloc}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>

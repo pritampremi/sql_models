@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Display Emp</h1>
+        <table border="3px" cellpadding="5px">
+            <tr>
+                <th>empno</th>
+                <th>ename</th>
+                <th>job</th>
+                <th>hiredate</th>
+                <th>sal</th>
+                <th>comm</th>
+                <th>deptno</th>
+                <th>mgr</th>
+            </tr>
+            {% for EO in LEO %}
+            <tr>
+                <td>{{EO.empno}}</td>
+                <td>{{EO.ename}}</td>
+                <td>{{EO.job}}</td>
+                <td>{{EO.hiredate}}</td>
+                <td>{{EO.sal}}</td>
+                <td>{{EO.comm}}</td>
+                <td>{{EO.deptno}}</td>
+                <td>{{EO.mgr}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>

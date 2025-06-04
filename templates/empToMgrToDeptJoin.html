@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>empToMgrToDeptJoin</h1>
+        <table border="=3px" cellpadding="5px">
+            <tr>
+                <th>ename</th>
+                <th>sal</th>
+                <th>mgr name</th>
+                <th>mgr sal</th>
+                <th>deptno</th>
+                <th>dname</th>
+            </tr>
+            {% for EDMO in LEDMO %}
+                <tr>
+                    <td>{{EDMO.ename}}</td>
+                    <td>{{EDMO.sal}}</td>
+                    <td>{{EDMO.mgr.ename}}</td>
+                    <td>{{EDMO.mgr.sal}}</td>
+                    <td>{{EDMO.deptno.deptno}}</td>
+                    <td>{{EDMO.deptno.dname}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>
