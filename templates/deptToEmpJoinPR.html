@@ -7,7 +7,7 @@
 </head>
 <body>
     <center>
-        <h1>Dept To Emp Join (Prefetch Related)</h1>
+        <h1 style="color: blue;">Dept To Emp Join (Prefetch Related)</h1>
 
         {%for DEO in LDEO%}
             {% if DEO.emp_set.all %}
@@ -27,6 +27,7 @@
                     </tr>
                 {% endfor %}
             </table> 
+            <hr>
             {% endif %}   
         {% endfor %}
                     

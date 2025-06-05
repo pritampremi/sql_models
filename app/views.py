@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from app.models import *
 from django.db.models import Prefetch
+from django.db.models import *
+from django.db.models.functions import Length
 # Create your views here.
 
 def dept(request):
@@ -104,6 +106,25 @@ def empToDeptjoins(request):
     LEDO=Emp.objects.select_related('deptno').filter(ename__regex='\AK')
     LEDO=Emp.objects.select_related('deptno').filter(job__regex='K$')
     LEDO=Emp.objects.select_related('deptno').filter(deptno__dloc='NEW YORK')
+   
+    '''
+    maxsalary=Emp.objects.select_related('deptno').aggregate(Max('sal'))
+    print(maxsalary)
+    minsalary=Emp.objects.select_related('deptno').aggregate(minsal=Min('sal'))['minsal']
+    print(minsalary)
+    avgsalary=Emp.objects.select_related('deptno').aggregate(Avg('sal'))
+    print(avgsalary)
+    totalsalary=Emp.objects.select_related('deptno').aggregate(Sum('sal'))
+    print(totalsalary)
+    empcount=Emp.objects.select_related('deptno').aggregate(Count('sal'))
+    print(empcount)
+    avgdeptsal=Emp.objects.select_related('deptno').filter(deptno=20).aggregate(Avg('sal'))
+    print(avgdeptsal)
+    avgsalalldept=Emp.objects.select_related('deptno').values('deptno').annotate(dept_avg_sal=Avg('sal'))
+    print(avgsalalldept)
+    '''
+    LEDO=Emp.objects.select_related('deptno').annotate(name_length=Length('ename')).filter(name_length=4)
+
     d={'LEDO':LEDO}
     return render(request, 'empToDeptjoins.html',d)
 
@@ -131,6 +152,6 @@ def deptToEmpJoinPR(request):
     LDEO=Dept.objects.prefetch_related('emp_set').all().filter(dname='ACCOUNTING')
     LDEO=Dept.objects.prefetch_related(Prefetch('emp_set',queryset=Emp.objects.filter(ename='BLAKE')))
     LDEO=Dept.objects.prefetch_related(Prefetch('emp_set',queryset=Emp.objects.filter(ename__in=('SMITH','ALLEN'))))
+    LDEO=Dept.objects.prefetch_related(Prefetch('emp_set',queryset=Emp.objects.filter(sal__gt=1500)))
     d={'LDEO':LDEO}
     return render(request,'deptToEmpJoinPR.html',d)
-
